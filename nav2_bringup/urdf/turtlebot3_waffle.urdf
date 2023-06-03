@@ -1,20 +1,58 @@
 <?xml version="1.0" ?>
 <robot name="turtlebot3_waffle" xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <material name="black">
+        <color rgba="0.0 0.0 0.0 1.0"/>
+    </material>
+
+    <material name="dark">
+        <color rgba="0.3 0.3 0.3 1.0"/>
+    </material>
+
+    <material name="light_black">
+        <color rgba="0.4 0.4 0.4 1.0"/>
+    </material>
+
+    <material name="blue">
+        <color rgba="0.0 0.0 0.8 1.0"/>
+    </material>
+
+    <material name="green">
+        <color rgba="0.0 0.8 0.0 1.0"/>
+    </material>
+
+    <material name="grey">
+        <color rgba="0.5 0.5 0.5 1.0"/>
+    </material>
+
+    <material name="orange">
+        <color rgba="1.0 0.4235 0.0392 1.0"/>
+    </material>
+
+    <material name="brown">
+        <color rgba="0.8706 0.8118 0.7647 1.0"/>
+    </material>
+
+    <material name="red">
+        <color rgba="0.8 0.0 0.0 1.0"/>
+    </material>
+
+
     <link name="base_footprint"/>
     <link name="base_link">
         <visual>
-            <origin xyz="0.0 0.0 0.015" rpy="0 0 0"/>
+	    <origin xyz="0.0 0.0 0.015" rpy="0 0 0"/>
             <geometry>
-                <box size="0.10 0.195 0.225"/>
+		<box/>
             </geometry>
-            <material name="gray">
-                <color rgba="0.5 0.5 0.5 1.0"/>
+            <material name="blue">
+		<color rgba="0.0 0.0 0.8 1.0"/>
             </material>
         </visual>
         <collision>
             <origin xyz="-0.08 0 0.03" rpy="0 0 0"/>
             <geometry>
-                <box size="0.10 0.195 0.225"/>
+                <box/>
             </geometry>
         </collision>
     </link>
@@ -24,6 +62,26 @@
         <parent link="base_footprint"/>
         <child link="base_link"/>
     </joint>
+    
+    
+
+    <link name="box_link">
+        <visual>
+            <origin xyz="0 0 0.1425" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.10 0.195 0.255"/>
+            </geometry>
+            <material name="grey">
+                <color rgba="0.5 0.5 0.5 1.0"/>
+            </material>
+        </visual>
+    </link>
+    
+    <joint name="box_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="box_link"/>
+        <origin xyz="-0.1 0 0"/>
+    </joint>
 
     <link name="l_front_wheel">
         <visual>
@@ -31,8 +89,8 @@
             <geometry>
                 <cylinder radius="0.035" length="0.025"/>
             </geometry>
-            <material name="dark_gray">
-                <color rgba="0.0 0.0 0.8 1.0"/>
+            <material name="grey">
+                <color rgba="0.5 0.5 0.5 1.0"/>
             </material>
         </visual>
         <collision>
@@ -50,8 +108,8 @@
             <geometry>
                 <cylinder radius="0.035" length="0.025"/>
             </geometry>
-            <material name="dark_gray">
-                <color rgba="0.0 0.0 0.8 1.0"/>
+            <material name="dark">
+                <color rgba="0.3 0.3 0.3 1.0"/>
             </material>
         </visual>
         <collision>
@@ -69,8 +127,8 @@
             <geometry>
                 <cylinder radius="0.035" length="0.025"/>
             </geometry>
-            <material name="dark_gray">
-                <color rgba="0.2 0.2 0.2 1.0"/>
+            <material name="dark">
+                <color rgba="0.3 0.3 0.3 1.0"/>
             </material>
         </visual>
         <collision>
@@ -87,8 +145,8 @@
             <geometry>
                 <cylinder radius="0.035" length="0.025"/>
             </geometry>
-            <material name="dark_gray">
-                <color rgba="0.2 0.2 0.2 1.0"/>
+            <material name="dark">
+                <color rgba="0.3 0.3 0.3 1.0"/>
             </material>
         </visual>
         <collision>
@@ -101,64 +159,28 @@
 
 
     <joint name="l_front_wheel_joint" type="continuous">
-        <origin xyz="-0.0925 0.0625 0.03" rpy="1.570796 0 0" />
+        <origin xyz="0.0575 -0.0675 0.035" rpy="1.570796 0 0" />
         <parent link="base_link"/>
         <child link="l_front_wheel"/>
         <axis xyz="0 1 0"/>
     </joint>
 
     <joint name="l_back_wheel_joint" type="continuous">
-        <origin xyz="0.0925 0.0625 0.03" rpy="1.570796 0 0" />
+        <origin xyz="-0.0575 -0.0675 0.035" rpy="1.570796 0 0" />
         <parent link="base_link"/>
         <child link="l_back_wheel"/>
         <axis xyz="0 1 0"/>
     </joint>
 
-    <link name="r_front_wheel">
-        <visual>
-            <origin xyz="-0.0925 -0.0625 0.03" rpy="1.570796 0 0"/>
-            <geometry>
-                <cylinder radius="0.035" length="0.025"/>
-            </geometry>
-            <material name="dark_gray">
-                <color rgba="0.2 0.2 0.2 1.0"/>
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0 0 0" rpy="1.570796 0 0"/>
-            <geometry>
-                <cylinder radius="0.035" length="0.025"/>
-            </geometry>
-        </collision>
-    </link>
-
-    <link name="r_back_wheel">
-        <visual>
-            <origin xyz="0.0925 -0.0625 0.03" rpy="1.570796 0 0"/>
-            <geometry>
-                <cylinder radius="0.035" length="0.025"/>
-            </geometry>
-            <material name="dark_gray">
-                <color rgba="0.2 0.2 0.2 1.0"/>
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0 0 0" rpy="1.570796 0 0"/>
-            <geometry>
-                <cylinder radius="0.035" length="0.025"/>
-            </geometry>
-        </collision>
-    </link>
-
     <joint name="r_front_wheel_joint" type="continuous">
-        <origin xyz="-0.0925 -0.0625 0.03" rpy="1.570796 0 0" />
+        <origin xyz="0.0575 0.0675 0.035" rpy="1.570796 0 0" />
         <parent link="base_link"/>
         <child link="r_front_wheel"/>
         <axis xyz="0 1 0"/>
     </joint>
 
     <joint name="r_back_wheel_joint" type="continuous">
-        <origin xyz="0.0925 -0.0625 0.03" rpy="1.570796 0 0" />
+        <origin xyz="-0.0575 0.0675 0.035" rpy="1.570796 0 0" />
         <parent link="base_link"/>
         <child link="r_back_wheel"/>
         <axis xyz="0 1 0"/>
@@ -171,8 +193,8 @@
             <geometry>
                 <cylinder radius="0.035" length="0.06"/>
             </geometry>
-            <material name="dark_gray">
-                <color rgba="0.2 0.2 0.2 1.0"/>
+            <material name="dark">
+                <color rgba="0.3 0.3 0.3 1.0"/>
             </material>
         </visual>
         <collision>
@@ -190,4 +212,3 @@
         <axis xyz="0 1 0"/>
     </joint>
 </robot>
-
