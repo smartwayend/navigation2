@@ -8,7 +8,7 @@
       <link name="base_link">
 
         <inertial>
-          <pose>0 0 0.010 0 0 0</pose>
+          <pose>0 0 0.015 0 0 0</pose>
           <inertia>
             <ixx>0.001</ixx>
             <ixy>0.000</ixy>
@@ -21,16 +21,14 @@
         </inertial>
 
         <collision name="base_collision">
-          <pose>-0.064 0 0.047 0 0 0</pose>
+          <pose>0 0 0.015 0 0 0</pose>
           <geometry>
-            <box>
-              <size>0.266 0.266 0.094</size>
-            </box>
+            <box/>
           </geometry>
         </collision>
 
         <visual name="base_visual">
-          <pose>-0.064 0 0 0 0 0</pose>
+          <pose>0 0 0.015 0 0 0</pose>
           <geometry>
             <mesh>
               <uri>model://turtlebot3_common/meshes/waffle_base.dae</uri>
@@ -40,10 +38,10 @@
         </visual>
       </link>
 
-      <link name="front_left_wheel_link">
+      <link name="l_front_wheel">
 
         <inertial>
-          <pose>0.077 0.066 0.0 0 0 0</pose>
+          <pose>0.0575 -0.0675 0.035 1.570796 0 0</pose>
           <inertia>
             <ixx>0.001</ixx>
             <ixy>0.000</ixy>
@@ -55,11 +53,11 @@
           <mass>0.1</mass>
         </inertial>
 
-        <collision name="front_left_wheel_collision">
-          <pose>"0.077 0.066 0.0 0 0 0</pose>
+        <collision>
+          <pose>0.0575 -0.0675 0.035 1.570796 0 0</pose>
           <geometry>
             <cylinder>
-              <radius>0.032</radius>
+              <radius>0.035</radius>
               <length>0.025</length>
             </cylinder>
           </geometry>
@@ -86,9 +84,9 @@
             </contact>
           </surface>
         </collision>
-<!--
-        <visual name="wheel_left_visual">
-          <pose>0.0 0.144 0.023 0 0 0</pose>
+
+        <visual>
+          <pose>0.0575 -0.0675 0.035 1.570796 0 0</pose>
           <geometry>
             <mesh>
               <uri>model://turtlebot3_common/meshes/tire.dae</uri>
@@ -96,13 +94,11 @@
             </mesh>
           </geometry>
         </visual>
---> 
       </link>
 
-      <link name="front_right_wheel_link">
-
+      <link name="r_front_wheel">
         <inertial>
-          <pose>0.077 -0.066 0.0 0 0 0</pose>
+          <pose>0.0575 0.0675 0.035 1.570796 0 0</pose>
           <inertia>
             <ixx>0.001</ixx>
             <ixy>0.000</ixy>
@@ -114,11 +110,11 @@
           <mass>0.1</mass>
         </inertial>
       
-        <collision name="front_right_wheel_collision">
-          <pose>0.077 -0.066 0.0 0 0 0</pose>
+        <collision>
+          <pose>0.0575 0.0675 0.035 1.570796 0 0</pose>
           <geometry>
             <cylinder>
-              <radius>0.032</radius>
+              <radius>0.035</radius>
               <length>0.025</length>
             </cylinder>
           </geometry>
@@ -145,9 +141,9 @@
             </contact>
           </surface>
         </collision>
-<!--
-        <visual name="wheel_right_visual">
-          <pose>0.0 -0.144 0.023 0 0 0</pose>
+
+        <visual>
+          <pose>0.0575 0.0675 0.035 1.570796 0 0</pose>
           <geometry>
             <mesh>
               <uri>model://turtlebot3_common/meshes/tire.dae</uri>
@@ -155,15 +151,15 @@
             </mesh>
           </geometry>
         </visual>
--->
+
       </link>
 
         
         
-      <link name="back_right_wheel_link">
+      <link name="r_back_wheel_link">
 
         <inertial>
-          <pose>-0.077 -0.066 0.0 0 0 0</pose>
+          <pose>-0.0575 0.0675 0.035 1.570796 0 0</pose>
           <inertia>
             <ixx>0.001</ixx>
             <ixy>0.000</ixy>
@@ -175,11 +171,11 @@
           <mass>0.1</mass>
         </inertial>
       
-        <collision name="back_right_wheel_collision">
-          <pose>-0.077 -0.066 0.0 0 0 0</pose>
+        <collision>
+          <pose>-0.0575 0.0675 0.035 1.570796 0 0</pose>
           <geometry>
             <cylinder>
-              <radius>0.032</radius>
+              <radius>0.035</radius>
               <length>0.025</length>
             </cylinder>
           </geometry>
@@ -206,9 +202,8 @@
             </contact>
           </surface>
         </collision>
-<!--
-        <visual name="wheel_right_visual">
-          <pose>0.0 -0.144 0.023 0 0 0</pose>
+        <visual>
+          <pose>-0.0575 0.0675 0.035 1.570796 0 0</pose>
           <geometry>
             <mesh>
               <uri>model://turtlebot3_common/meshes/tire.dae</uri>
@@ -216,13 +211,12 @@
             </mesh>
           </geometry>
         </visual>
--->
       </link>
         
-      <link name="back_left_wheel_link">
+      <link name="l_back_wheel">
 
         <inertial>
-          <pose>-0.077 0.066 0.0 0 0 0</pose>
+          <pose>-0.0575 -0.0675 0.035 1.570796 0 0</pose>
           <inertia>
             <ixx>0.001</ixx>
             <ixy>0.000</ixy>
@@ -234,8 +228,8 @@
           <mass>0.1</mass>
         </inertial>
       
-        <collision name="back_left_wheel_collision">
-          <pose>-0.077 0.066 0.0 0 0 0</pose>
+        <collision>
+          <pose>-0.0575 -0.0675 0.035 1.570796 0 0</pose>
           <geometry>
             <cylinder>
               <radius>0.032</radius>
@@ -265,9 +259,9 @@
             </contact>
           </surface>
         </collision>
-<!--
-        <visual name="wheel_right_visual">
-          <pose>0.0 -0.144 0.023 0 0 0</pose>
+
+        <visual>
+          <pose>-0.0575 -0.0675 0.035 1.570796 0 0</pose>
           <geometry>
             <mesh>
               <uri>model://turtlebot3_common/meshes/tire.dae</uri>
@@ -275,7 +269,7 @@
             </mesh>
           </geometry>
         </visual>
--->
+
       </link>
 
                    
@@ -284,31 +278,31 @@
       <joint name="base_joint" type="fixed">
         <parent>base_footprint</parent>
         <child>base_link</child>
-        <pose>0.0 0.0 0.010 0 0 0</pose>
+        <pose>0.0 0.0 0.015 0 0 0</pose>
       </joint>
 
-      <joint name="front_left_wheel_joint" type="revolute">
+      <joint name="l_front_wheel_joint" type="revolute">
         <parent>base_link</parent>
-        <child>front_left_wheel_link</child>
-        <pose>0.077 0.066 0.0 0 0 0</pose>
+        <child>l_front_wheel</child>
+        <pose>0.0575 -0.0675 0.035 1.570796 0 0</pose>
         <axis>
           <xyz>0 0 1</xyz>
         </axis>
       </joint>
 
-      <joint name="front_right_wheel_joint" type="revolute">
+      <joint name="r_front_wheel_joint" type="revolute">
         <parent>base_link</parent>
-        <child>front_right_wheel_joint</child>
-        <pose>0.077 -0.066 0.0 0 0 0</pose>
+        <child>r_front_wheel</child>
+        <pose>0.0575 0.0675 0.035 1.570796 0 0</pose>
         <axis>
           <xyz>0 0 1</xyz>
         </axis>
       </joint>
 
-      <joint name="rear_right_wheel_joint" type="revolute">
+      <joint name="r_back_wheel_joint" type="revolute">
         <parent>base_link</parent>
-        <child>back_right_wheel_link</child>
-        <pose>-0.077 -0.066 0.0 0 0 0</pose>
+        <child>r_back_wheel</child>
+        <pose>-0.0575 0.0675 0.035 1.570796 0 0</pose>
         <axis>
           <xyz>0 0 1</xyz>
         </axis>
@@ -316,10 +310,10 @@
         
         
         
-      <joint name="rear_left_wheel_joint" type="revolute">
+      <joint name="l_back_wheel_joint" type="revolute">
         <parent>base_link</parent>
-        <child>back_left_wheel_link</child>
-        <pose>-0.077 0.066 0.0 0 0 0</pose>
+        <child>l_back_wheel_link</child>
+        <pose>-0.0575 -0.0675 0.035 1.570796 0 0</pose>
         <axis>
           <xyz>0 0 1</xyz>
         </axis>
