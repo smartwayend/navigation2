@@ -86,8 +86,8 @@
             </contact>
           </surface>
         </collision>
-
-        <!visual name="wheel_left_visual">
+<!--
+        <visual name="wheel_left_visual">
           <pose>0.0 0.144 0.023 0 0 0</pose>
           <geometry>
             <mesh>
@@ -95,8 +95,8 @@
               <scale>0.001 0.001 0.001</scale>
             </mesh>
           </geometry>
-        </visual!>
-          
+        </visual>
+--> 
       </link>
 
       <link name="wheel_right_link">
