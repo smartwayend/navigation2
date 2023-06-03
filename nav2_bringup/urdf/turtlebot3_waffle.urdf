@@ -3,9 +3,9 @@
     <link name="base_footprint"/>
     <link name="base_link">
         <visual>
-            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <origin xyz="0.0 0.0 0.135" rpy="0 0 0"/>
             <geometry>
-                <box size="0.245 0.1 0.225"/>
+                <box size="0.10 0.195 0.225"/>
             </geometry>
             <material name="gray">
                 <color rgba="0.5 0.5 0.5 1.0"/>
@@ -14,7 +14,7 @@
         <collision>
             <origin xyz="-0.08 0 0.03" rpy="0 0 0"/>
             <geometry>
-                <box size="0.3 0.26 0.1"/>
+                <box size="0.10 0.195 0.225"/>
             </geometry>
         </collision>
     </link>
