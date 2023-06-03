@@ -160,7 +160,7 @@
 
         
         
-      <link name="rear_right_wheel_link">
+      <link name="back_right_wheel_link">
 
         <inertial>
           <pose>-0.077 -0.066 0.0 0 0 0</pose>
@@ -175,7 +175,7 @@
           <mass>0.1</mass>
         </inertial>
       
-        <collision name="rear_right_wheel_collision">
+        <collision name="back_right_wheel_collision">
           <pose>-0.077 -0.066 0.0 0 0 0</pose>
           <geometry>
             <cylinder>
@@ -219,7 +219,7 @@
 -->
       </link>
         
-      <link name="rear_left_wheel_link">
+      <link name="back_left_wheel_link">
 
         <inertial>
           <pose>-0.077 0.066 0.0 0 0 0</pose>
@@ -234,7 +234,7 @@
           <mass>0.1</mass>
         </inertial>
       
-        <collision name="rear_left_wheel_collision">
+        <collision name="back_left_wheel_collision">
           <pose>-0.077 0.066 0.0 0 0 0</pose>
           <geometry>
             <cylinder>
@@ -307,7 +307,7 @@
 
       <joint name="rear_right_wheel_joint" type="revolute">
         <parent>base_link</parent>
-        <child>rear_right_wheel_link</child>
+        <child>back_right_wheel_link</child>
         <pose>-0.077 -0.066 0.0 0 0 0</pose>
         <axis>
           <xyz>0 0 1</xyz>
@@ -318,7 +318,7 @@
         
       <joint name="rear_left_wheel_joint" type="revolute">
         <parent>base_link</parent>
-        <child>rear_left_wheel_link</child>
+        <child>back_left_wheel_link</child>
         <pose>-0.077 0.066 0.0 0 0 0</pose>
         <axis>
           <xyz>0 0 1</xyz>
