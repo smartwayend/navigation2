@@ -3,7 +3,7 @@
     <link name="base_footprint"/>
     <link name="base_link">
         <visual>
-            <origin xyz="0.0 0.0 0.135" rpy="0 0 0"/>
+            <origin xyz="0.0 0.0 0.015" rpy="0 0 0"/>
             <geometry>
                 <box size="0.10 0.195 0.225"/>
             </geometry>
@@ -20,16 +20,16 @@
     </link>
 
     <joint name="base_footprint_fixed" type="fixed">
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0.015" rpy="0 0 0" />
         <parent link="base_footprint"/>
         <child link="base_link"/>
     </joint>
 
     <link name="l_front_wheel">
         <visual>
-            <origin xyz="-0.0925 0.0625 0.03" rpy="1.570796 0 0"/>
+            <origin xyz="0.0575 -0.0675 0.035" rpy="1.570796 0 0"/>
             <geometry>
-                <cylinder radius="0.03" length="0.025"/>
+                <cylinder radius="0.035" length="0.025"/>
             </geometry>
             <material name="dark_gray">
                 <color rgba="0.0 0.0 0.8 1.0"/>
@@ -38,16 +38,36 @@
         <collision>
             <origin xyz="0 0 0" rpy="1.570796 0 0"/>
             <geometry>
-                <cylinder radius="0.03" length="0.025"/>
+                <cylinder radius="0.035" length="0.025"/>
             </geometry>
         </collision>
     </link>
 
+    
+    <link name="l_back_wheel">
+        <visual>
+            <origin xyz="-0.0575 -0.0675 0.035" rpy="1.570796 0 0"/>
+            <geometry>
+                <cylinder radius="0.035" length="0.025"/>
+            </geometry>
+            <material name="dark_gray">
+                <color rgba="0.0 0.0 0.8 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="1.570796 0 0"/>
+            <geometry>
+                <cylinder radius="0.035" length="0.025"/>
+            </geometry>
+        </collision>
+    </link>
+    
+    
     <link name="r_front_wheel">
         <visual>
-            <origin xyz="0.0925 0.0625 0.03" rpy="1.570796 0 0"/>
+            <origin xyz="0.0575 0.0675 0.035" rpy="1.570796 0 0"/>
             <geometry>
-                <cylinder radius="0.03" length="0.025"/>
+                <cylinder radius="0.035" length="0.025"/>
             </geometry>
             <material name="dark_gray">
                 <color rgba="0.2 0.2 0.2 1.0"/>
@@ -56,10 +76,29 @@
         <collision>
             <origin xyz="0 0 0" rpy="1.570796 0 0"/>
             <geometry>
-                <cylinder radius="0.03" length="0.025"/>
+                <cylinder radius="0.035" length="0.025"/>
             </geometry>
         </collision>
     </link>
+    
+    <link name="r_back_wheel">
+        <visual>
+            <origin xyz="-0.0575 0.0675 0.035" rpy="1.570796 0 0"/>
+            <geometry>
+                <cylinder radius="0.035" length="0.025"/>
+            </geometry>
+            <material name="dark_gray">
+                <color rgba="0.2 0.2 0.2 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="1.570796 0 0"/>
+            <geometry>
+                <cylinder radius="0.035" length="0.025"/>
+            </geometry>
+        </collision>
+    </link>
+
 
     <joint name="l_front_wheel_joint" type="continuous">
         <origin xyz="-0.0925 0.0625 0.03" rpy="1.570796 0 0" />
@@ -68,18 +107,18 @@
         <axis xyz="0 1 0"/>
     </joint>
 
-    <joint name="r_front_wheel_joint" type="continuous">
+    <joint name="l_back_wheel_joint" type="continuous">
         <origin xyz="0.0925 0.0625 0.03" rpy="1.570796 0 0" />
         <parent link="base_link"/>
-        <child link="r_front_wheel"/>
+        <child link="l_back_wheel"/>
         <axis xyz="0 1 0"/>
     </joint>
 
-    <link name="l_back_wheel">
+    <link name="r_front_wheel">
         <visual>
             <origin xyz="-0.0925 -0.0625 0.03" rpy="1.570796 0 0"/>
             <geometry>
-                <cylinder radius="0.03" length="0.025"/>
+                <cylinder radius="0.035" length="0.025"/>
             </geometry>
             <material name="dark_gray">
                 <color rgba="0.2 0.2 0.2 1.0"/>
@@ -88,7 +127,7 @@
         <collision>
             <origin xyz="0 0 0" rpy="1.570796 0 0"/>
             <geometry>
-                <cylinder radius="0.03" length="0.025"/>
+                <cylinder radius="0.035" length="0.025"/>
             </geometry>
         </collision>
     </link>
@@ -97,7 +136,7 @@
         <visual>
             <origin xyz="0.0925 -0.0625 0.03" rpy="1.570796 0 0"/>
             <geometry>
-                <cylinder radius="0.03" length="0.025"/>
+                <cylinder radius="0.035" length="0.025"/>
             </geometry>
             <material name="dark_gray">
                 <color rgba="0.2 0.2 0.2 1.0"/>
@@ -106,15 +145,15 @@
         <collision>
             <origin xyz="0 0 0" rpy="1.570796 0 0"/>
             <geometry>
-                <cylinder radius="0.03" length="0.025"/>
+                <cylinder radius="0.035" length="0.025"/>
             </geometry>
         </collision>
     </link>
 
-    <joint name="l_back_wheel_joint" type="continuous">
+    <joint name="r_front_wheel_joint" type="continuous">
         <origin xyz="-0.0925 -0.0625 0.03" rpy="1.570796 0 0" />
         <parent link="base_link"/>
-        <child link="l_back_wheel"/>
+        <child link="r_front_wheel"/>
         <axis xyz="0 1 0"/>
     </joint>
 
@@ -125,15 +164,10 @@
         <axis xyz="0 1 0"/>
     </joint>
     
-    <joint name="base_link_fixed" type="fixed">
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <parent link="base_link"/>
-        <child link="laser"/>
-    </joint>
-    
+
     <link name="laser">
         <visual>
-            <origin xyz="0 0 0.03" rpy="0 0 0"/>
+            <origin xyz="0 0 0.3" rpy="0 0 0"/>
             <geometry>
                 <cylinder radius="0.035" length="0.06"/>
             </geometry>
@@ -142,7 +176,7 @@
             </material>
         </visual>
         <collision>
-            <origin xyz="0 0 0.03" rpy="0 0 0"/>
+            <origin xyz="0 0 0.3" rpy="0 0 0"/>
             <geometry>
                 <cylinder radius="0.035" length="0.06"/>
             </geometry>
@@ -150,7 +184,7 @@
     </link>
 
     <joint name="laser" type="continuous">
-        <origin xyz="0 0 0" rpy="0 0 0" />
+        <origin xyz="0 0 0.3" rpy="0 0 0" />
         <parent link="base_link"/>
         <child link="laser"/>
         <axis xyz="0 1 0"/>
