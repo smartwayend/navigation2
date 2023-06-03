@@ -118,12 +118,12 @@ def generate_launch_description():
         default_value=os.path.join(
             bringup_dir, 'rviz', 'nav2_default_view.rviz'),
         description='Full path to the RVIZ config file to use')
-
+'''
     declare_use_simulator_cmd = DeclareLaunchArgument(
         'use_simulator',
         default_value='True',
         description='Whether to start the simulator')
-
+'''
     declare_use_robot_state_pub_cmd = DeclareLaunchArgument(
         'use_robot_state_pub',
         default_value='True',
@@ -133,12 +133,12 @@ def generate_launch_description():
         'use_rviz',
         default_value='True',
         description='Whether to start RVIZ')
-
+'''
     declare_simulator_cmd = DeclareLaunchArgument(
         'headless',
         default_value='True',
         description='Whether to execute gzclient)')
-
+'''
     declare_world_cmd = DeclareLaunchArgument(
         'world',
         # TODO(orduno) Switch back once ROS argument passing has been fixed upstream
@@ -159,6 +159,7 @@ def generate_launch_description():
         description='Full path to robot sdf file to spawn the robot in gazebo')
 
     # Specify the actions
+    '''
     start_gazebo_server_cmd = ExecuteProcess(
         condition=IfCondition(use_simulator),
         cmd=['gzserver', '-s', 'libgazebo_ros_init.so',
@@ -170,7 +171,7 @@ def generate_launch_description():
             [use_simulator, ' and not ', headless])),
         cmd=['gzclient'],
         cwd=[launch_dir], output='screen')
-
+'''
     urdf = os.path.join(bringup_dir, 'urdf', 'turtlebot3_waffle.urdf')
     with open(urdf, 'r') as infp:
         robot_description = infp.read()
@@ -185,7 +186,7 @@ def generate_launch_description():
         parameters=[{'use_sim_time': use_sim_time,
                      'robot_description': robot_description}],
         remappings=remappings)
-
+'''
     start_gazebo_spawner_cmd = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
@@ -196,7 +197,7 @@ def generate_launch_description():
             '-robot_namespace', namespace,
             '-x', pose['x'], '-y', pose['y'], '-z', pose['z'],
             '-R', pose['R'], '-P', pose['P'], '-Y', pose['Y']])
-
+'''
     rviz_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(launch_dir, 'rviz_launch.py')),
